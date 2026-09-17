@@ -1,10 +1,12 @@
 FROM mcr.microsoft.com/playwright/python:v1.48.0-jammy
 
+ENV PYTHONUNBUFFERED=1
+
 WORKDIR /app
 
 COPY . .
 
-RUN pip install --no-cache-dir fastapi uvicorn pydantic httpx pillow playwright easyocr
+RUN pip install --no-cache-dir fastapi uvicorn pydantic httpx pillow "playwright==1.48.0" easyocr
 
 EXPOSE 10000
 
